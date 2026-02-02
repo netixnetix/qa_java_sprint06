@@ -1,5 +1,4 @@
 package seleniumTest.sectionOrderScooter;
-
 import browser.Browser;
 import browser.BrowserFactory;
 import org.junit.jupiter.api.AfterEach;
@@ -13,12 +12,12 @@ import pages.ScooterHeader;
 import pages.ScooterMainPage;
 import pages.ScooterOrderForm;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CreateOrder {
 
@@ -66,7 +65,7 @@ public class CreateOrder {
     public void openOrderFormByMainPage() {
         main = new ScooterMainPage(browser.getDriver());
         browser.navigateToMain();
-        main.ScrollTocSendOrderButton();
+        main.scrollTocSendOrderButton();
         main.clickSendOrderButton();
         assertEquals(browser.getCurrentUrl(), browser.getBaseUrl()+"order");
         orderForm.checkOrderFormAccessibly();
@@ -191,6 +190,5 @@ public class CreateOrder {
                "Номер заказа: .  Запишите его:\n" +
                 "пригодится, чтобы отслеживать статус");
     }
-
 
 }

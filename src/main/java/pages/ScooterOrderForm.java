@@ -1,11 +1,8 @@
 package pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-
 import java.util.List;
 
 public class ScooterOrderForm {
@@ -16,7 +13,6 @@ public class ScooterOrderForm {
         this.driver = driver;
     }
 
-
     //Форма заказа самоката[1]
     private final By titleFormOrder = By.className("Order_Header__BZXOb");
     private final By inputNameFormOrder = By.cssSelector("div.Order_Form__17u6u input[placeholder*='Имя']");
@@ -25,7 +21,6 @@ public class ScooterOrderForm {
     private final By inputMetroFormOrder = By.cssSelector("div.Order_Form__17u6u input[placeholder*='Станция метро']");
     private final By inputPhoneFormOrder = By.cssSelector("div.Order_Form__17u6u input[placeholder*='Телефон: на него позвонит курьер']");
     private final By buttonNext = By.cssSelector(".Button_Button__ra12g.Button_Middle__1CSJM");
-
 
     //Форма заказа самоката[2]
     private final By inputDateDelivery = By.cssSelector("div.Order_Form__17u6u input[placeholder*='Когда привезти самокат']");
@@ -43,7 +38,6 @@ public class ScooterOrderForm {
     private final By confirmationHeader = By.cssSelector("div.Order_Modal__YZ-d3 div.Order_ModalHeader__3FDaJ");
     private final By confirmationButtonOK = By.xpath("//div[@class='Order_Buttons__1xGrp']//button[text()='Да']");
     private final By confirmationButtonNO = By.xpath("//div[@class='Order_Buttons__1xGrp']//button[text()='Нет']");
-
 
     //Форма успешного заказа
     private final By successfulOrderHeader = By.cssSelector("div.Order_Modal__YZ-d3 div.Order_ModalHeader__3FDaJ");
@@ -69,7 +63,6 @@ public class ScooterOrderForm {
     public String getTextSFHeader() {
         return driver.findElement(successfulOrderHeader).getText();
     }
-
 
     public void setUserFamily(String userFamily) {
         driver.findElement(inputFamilyFormOrder).sendKeys(userFamily);
@@ -102,7 +95,6 @@ public class ScooterOrderForm {
     public void setInputRentalPeriod(String period) {
         driver.findElement(inputRentalPeriod).sendKeys(period);
     }
-
 
     public void clickToColorScooterField(String blackOrGreyColor) {
 
@@ -158,19 +150,38 @@ public class ScooterOrderForm {
         driver.findElement(stationLocator).click();
     }
 
-    public void chooseRentalDay(int days){
+    public void chooseRentalDay(int days) {
         driver.findElement(inputRentalPeriod).click();
-        String result = switch (days) {
-            case 1 -> "сутки";
-            case 2 -> "двое суток";
-            case 3 -> "трое суток";
-            case 4 -> "четверо суток";
-            case 5 -> "пятеро суток";
-            case 6 -> "шестеро суток";
-            case 7 -> "семеро суток";
-            default -> "сутки";
-        };
-        By stationLocator = By.xpath("//div[@class='Order_Form__17u6u']//div[@class='Dropdown-option' and text()='"+result+"']");
+
+        String result;
+        switch (days) {
+            case 1:
+                result = "сутки";
+                break;
+            case 2:
+                result = "двое суток";
+                break;
+            case 3:
+                result = "трое суток";
+                break;
+            case 4:
+                result = "четверо суток";
+                break;
+            case 5:
+                result = "пятеро суток";
+                break;
+            case 6:
+                result = "шестеро суток";
+                break;
+            case 7:
+                result = "семеро суток";
+                break;
+            default:
+                result = "сутки";
+                break;
+        }
+
+        By stationLocator = By.xpath(("//div[@class='Order_Form__17u6u']//div[@class='Dropdown-option' and text()='" + result + "']"));
         driver.findElement(stationLocator).click();
     }
 

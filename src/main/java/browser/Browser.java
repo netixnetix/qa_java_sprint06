@@ -8,5 +8,4 @@ public interface Browser {
     void quit();
     String getCurrentUrl();
     String getBaseUrl();
-    void sleep() throws InterruptedException;
 }

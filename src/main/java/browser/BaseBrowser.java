@@ -35,8 +35,4 @@ public abstract class BaseBrowser implements Browser {
         return baseURL;
     }
 
-    public void sleep() throws InterruptedException {
-        Thread.sleep(50000000);
-    }
-
 }

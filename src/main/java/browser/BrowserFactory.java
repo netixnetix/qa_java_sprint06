@@ -2,7 +2,6 @@ package browser;
 import org.ini4j.Ini;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +20,7 @@ public class BrowserFactory {
             browserOptions.add(ini.get("browser", "headless"));
             browserOptions.add(ini.get("browser", "sharedMem"));
 
+
             switch (browserType.toLowerCase()) {
                 case "chrome":
                     ChromeOptions chromeOptions = new ChromeOptions();
@@ -30,6 +30,7 @@ public class BrowserFactory {
                 case "firefox":
                     FirefoxOptions firefoxOptions= new FirefoxOptions();
                     firefoxOptions.addArguments(browserOptions);
+
                     return new FireFoxBrowser(firefoxOptions, baseURL);
 
                 default:
