@@ -16,8 +16,6 @@ public class ScooterMainPage {
     }
 
     private final By createOrderButton = By.xpath("//div[@class='Home_FinishButton__1_cWm']//button[text()='Заказать']");
-    private final By faqSection = By.cssSelector("div.Home_FAQ__3uVm4 div.accordion");
-
     private final By questionButton(String questionText) {
         return By.xpath(String.format(
                 "//div[@data-accordion-component='AccordionItemButton' and text()='%s']",
