@@ -183,10 +183,9 @@ public class CreateOrder {
         orderForm.clickButtonSendOrder();
         orderForm.checkConfirmationFormAccessibly();
         orderForm.clickConfirmationButtonOK();
-
         //Инф о успешном заказе
         orderForm.checkSuccessfulOrderFormAccessibly();
-       Assertions.assertEquals(orderForm.getTextSFHeader(), "Заказ оформлен\n" +
+        Assertions.assertEquals(orderForm.getTextSFHeader(), "Заказ оформлен\n" +
                "Номер заказа: .  Запишите его:\n" +
                 "пригодится, чтобы отслеживать статус");
     }
