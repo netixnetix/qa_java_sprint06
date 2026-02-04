@@ -1,5 +1,5 @@
-package seleniumTest.sectionOrderScooter;
-import browser.Browser;
+package selenium.test.section.orderscooter;
+import browser.BaseBrowser;
 import browser.BrowserFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -11,8 +11,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 import pages.ScooterHeader;
 import pages.ScooterMainPage;
 import pages.ScooterOrderForm;
-
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.stream.Stream;
@@ -21,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CreateOrder {
 
-    private Browser browser;
+    private BaseBrowser browser;
     private ScooterOrderForm orderForm;
     private ScooterHeader header;
     private ScooterMainPage main;

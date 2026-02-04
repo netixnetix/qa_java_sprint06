@@ -1,15 +1,16 @@
 package browser;
-
 import org.openqa.selenium.WebDriver;
 
-public abstract class BaseBrowser implements Browser {
+public class BaseBrowser{
     protected WebDriver driver;
     protected String baseURL;
 
     public BaseBrowser(WebDriver driver, String baseURL) {
         this.driver = driver;
         this.baseURL = baseURL;
+        driver.manage().window().maximize();
     }
+
 
     public WebDriver getDriver() {
         return driver;

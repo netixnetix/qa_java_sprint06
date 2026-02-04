@@ -10,7 +10,7 @@ public class BrowserFactory {
 
     private static final String CONFIG_FILE = "src/config.ini";
 
-    public static Browser createBrowser() {
+    public static BaseBrowser createBrowser() {
         try {
             Ini ini = new Ini(new File(CONFIG_FILE));
             List<String> browserOptions = new ArrayList<>();
@@ -19,7 +19,6 @@ public class BrowserFactory {
             browserOptions.add(ini.get("browser", "sandbox"));
             browserOptions.add(ini.get("browser", "headless"));
             browserOptions.add(ini.get("browser", "sharedMem"));
-
 
             switch (browserType.toLowerCase()) {
                 case "chrome":

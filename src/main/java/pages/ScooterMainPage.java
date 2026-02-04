@@ -15,6 +15,8 @@ public class ScooterMainPage {
         this.driver = driver;
     }
 
+    private final By cookieButton = By.cssSelector("#rcc-confirm-button.App_CookieButton__3cvqF");
+
     private final By createOrderButton = By.xpath("//div[@class='Home_FinishButton__1_cWm']//button[text()='Заказать']");
     private final By questionButton(String questionText) {
         return By.xpath(String.format(
@@ -52,13 +54,12 @@ public class ScooterMainPage {
     }
 
     public void scrollFaqQuestio() {
+        driver.findElement(cookieButton).click();
         WebElement lastElement = driver.findElement(By.tagName("body"));
         ((JavascriptExecutor) driver).executeScript(
                 "arguments[0].scrollIntoView(false);",
                 lastElement
         );
-
-
     }
 
 }
